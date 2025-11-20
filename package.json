@@ -1,0 +1,59 @@
+{
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "dependencies": {
+    "@stencil/sass": "^3.2.2"
+  },
+  "description": "Stencil Component Starter",
+  "devDependencies": {
+    "@stencil/core": "^4.27.1",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^22.13.5",
+    "jest": "^29.7.0",
+    "jest-cli": "^29.7.0",
+    "puppeteer": "^24.3.0",
+    "stencil-tailwind-plugin": "^2.0.5",
+    "tailwindcss": "^4.1.13"
+  },
+  "types": "dist/types/components.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/components.d.ts",
+      "import": "./dist/front-lib/front-lib.esm.js",
+      "require": "./dist/front-lib/front-lib.cjs.js",
+      "default": "./dist/front-lib/front-lib.esm.js"
+    },
+    "./loader": {
+      "types": "./loader/index.d.ts",
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs",
+      "default": "./loader/index.js"
+    }
+  },
+   "files": [
+    "www/**/*",
+    "dist/",
+    "loader/"
+  ],
+  "homepage": "https://github.com/all41-dev/front.lib.git#readme",
+  "license": "MIT",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "name": "@all41-dev/front.lib",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/all41-dev/front.lib.git"
+  },
+  "scripts": {
+    "build": "stencil build",
+    "generate": "stencil generate",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll"
+  },
+  "unpkg": "dist/front-lib/front-lib.esm.js",
+  "version": "2.0.0-alpha.2"
+}
