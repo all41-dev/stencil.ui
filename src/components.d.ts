@@ -5,7 +5,13 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { SelectOption } from "./components/base-select/base-select";
+import { TabItem } from "./components/base-tabs/base-tabs";
+export { SelectOption } from "./components/base-select/base-select";
+export { TabItem } from "./components/base-tabs/base-tabs";
 export namespace Components {
+    interface AppRoot {
+    }
     interface BaseButton {
         /**
           * @default false
@@ -33,19 +39,162 @@ export namespace Components {
          */
         "variant": string;
     }
+    interface BaseInput {
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        "error"?: string;
+        "label"?: string;
+        "placeholder"?: string;
+        /**
+          * @default 'text'
+         */
+        "type": string;
+        "value": string;
+    }
+    interface BaseSelect {
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        "error"?: string;
+        "label"?: string;
+        /**
+          * @default []
+         */
+        "options": SelectOption[];
+        "value": string;
+    }
+    interface BaseSwitch {
+        /**
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        "label"?: string;
+    }
+    interface BaseTabs {
+        "activeTab": string;
+        "navigate"?: (path: string) => void;
+        /**
+          * @default []
+         */
+        "tabs": TabItem[];
+    }
+}
+export interface BaseInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBaseInputElement;
+}
+export interface BaseSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBaseSelectElement;
+}
+export interface BaseSwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBaseSwitchElement;
+}
+export interface BaseTabsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBaseTabsElement;
 }
 declare global {
+    interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
+    }
+    var HTMLAppRootElement: {
+        prototype: HTMLAppRootElement;
+        new (): HTMLAppRootElement;
+    };
     interface HTMLBaseButtonElement extends Components.BaseButton, HTMLStencilElement {
     }
     var HTMLBaseButtonElement: {
         prototype: HTMLBaseButtonElement;
         new (): HTMLBaseButtonElement;
     };
+    interface HTMLBaseInputElementEventMap {
+        "valueChange": string;
+    }
+    interface HTMLBaseInputElement extends Components.BaseInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBaseInputElementEventMap>(type: K, listener: (this: HTMLBaseInputElement, ev: BaseInputCustomEvent<HTMLBaseInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBaseInputElementEventMap>(type: K, listener: (this: HTMLBaseInputElement, ev: BaseInputCustomEvent<HTMLBaseInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLBaseInputElement: {
+        prototype: HTMLBaseInputElement;
+        new (): HTMLBaseInputElement;
+    };
+    interface HTMLBaseSelectElementEventMap {
+        "valueChange": string;
+    }
+    interface HTMLBaseSelectElement extends Components.BaseSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBaseSelectElementEventMap>(type: K, listener: (this: HTMLBaseSelectElement, ev: BaseSelectCustomEvent<HTMLBaseSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBaseSelectElementEventMap>(type: K, listener: (this: HTMLBaseSelectElement, ev: BaseSelectCustomEvent<HTMLBaseSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLBaseSelectElement: {
+        prototype: HTMLBaseSelectElement;
+        new (): HTMLBaseSelectElement;
+    };
+    interface HTMLBaseSwitchElementEventMap {
+        "valueChange": boolean;
+    }
+    interface HTMLBaseSwitchElement extends Components.BaseSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBaseSwitchElementEventMap>(type: K, listener: (this: HTMLBaseSwitchElement, ev: BaseSwitchCustomEvent<HTMLBaseSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBaseSwitchElementEventMap>(type: K, listener: (this: HTMLBaseSwitchElement, ev: BaseSwitchCustomEvent<HTMLBaseSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLBaseSwitchElement: {
+        prototype: HTMLBaseSwitchElement;
+        new (): HTMLBaseSwitchElement;
+    };
+    interface HTMLBaseTabsElementEventMap {
+        "tabChange": string;
+    }
+    interface HTMLBaseTabsElement extends Components.BaseTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBaseTabsElementEventMap>(type: K, listener: (this: HTMLBaseTabsElement, ev: BaseTabsCustomEvent<HTMLBaseTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBaseTabsElementEventMap>(type: K, listener: (this: HTMLBaseTabsElement, ev: BaseTabsCustomEvent<HTMLBaseTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLBaseTabsElement: {
+        prototype: HTMLBaseTabsElement;
+        new (): HTMLBaseTabsElement;
+    };
     interface HTMLElementTagNameMap {
+        "app-root": HTMLAppRootElement;
         "base-button": HTMLBaseButtonElement;
+        "base-input": HTMLBaseInputElement;
+        "base-select": HTMLBaseSelectElement;
+        "base-switch": HTMLBaseSwitchElement;
+        "base-tabs": HTMLBaseTabsElement;
     }
 }
 declare namespace LocalJSX {
+    interface AppRoot {
+    }
     interface BaseButton {
         /**
           * @default false
@@ -73,15 +222,75 @@ declare namespace LocalJSX {
          */
         "variant"?: string;
     }
+    interface BaseInput {
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        "error"?: string;
+        "label"?: string;
+        "onValueChange"?: (event: BaseInputCustomEvent<string>) => void;
+        "placeholder"?: string;
+        /**
+          * @default 'text'
+         */
+        "type"?: string;
+        "value"?: string;
+    }
+    interface BaseSelect {
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        "error"?: string;
+        "label"?: string;
+        "onValueChange"?: (event: BaseSelectCustomEvent<string>) => void;
+        /**
+          * @default []
+         */
+        "options"?: SelectOption[];
+        "value"?: string;
+    }
+    interface BaseSwitch {
+        /**
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        "label"?: string;
+        "onValueChange"?: (event: BaseSwitchCustomEvent<boolean>) => void;
+    }
+    interface BaseTabs {
+        "activeTab"?: string;
+        "navigate"?: (path: string) => void;
+        "onTabChange"?: (event: BaseTabsCustomEvent<string>) => void;
+        /**
+          * @default []
+         */
+        "tabs"?: TabItem[];
+    }
     interface IntrinsicElements {
+        "app-root": AppRoot;
         "base-button": BaseButton;
+        "base-input": BaseInput;
+        "base-select": BaseSelect;
+        "base-switch": BaseSwitch;
+        "base-tabs": BaseTabs;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "base-button": LocalJSX.BaseButton & JSXBase.HTMLAttributes<HTMLBaseButtonElement>;
+            "base-input": LocalJSX.BaseInput & JSXBase.HTMLAttributes<HTMLBaseInputElement>;
+            "base-select": LocalJSX.BaseSelect & JSXBase.HTMLAttributes<HTMLBaseSelectElement>;
+            "base-switch": LocalJSX.BaseSwitch & JSXBase.HTMLAttributes<HTMLBaseSwitchElement>;
+            "base-tabs": LocalJSX.BaseTabs & JSXBase.HTMLAttributes<HTMLBaseTabsElement>;
         }
     }
 }

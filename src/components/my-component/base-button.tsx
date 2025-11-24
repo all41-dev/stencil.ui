@@ -23,9 +23,10 @@ export class BaseButton {
 
   private get classes() {
     const base =
-      'inline-flex items-center justify-center rounded-lg font-medium transition ' +
+      'inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 ' +
       'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ' +
-      'disabled:opacity-60 disabled:cursor-not-allowed';
+      'shadow-sm hover:shadow active:scale-95 ' +
+      'disabled:opacity-60 disabled:cursor-not-allowed disabled:shadow-none disabled:active:scale-100';
     const sizeCls =
       this.size === 'sm'
         ? 'px-3 py-1.5 text-sm'

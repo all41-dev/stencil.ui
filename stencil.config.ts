@@ -1,5 +1,5 @@
 import { Config } from '@stencil/core';
-import tailwind, { tailwindHMR, setPluginConfigurationDefaults  } from 'stencil-tailwind-plugin';
+import tailwind, { tailwindHMR, setPluginConfigurationDefaults } from 'stencil-tailwind-plugin';
 import { sass } from '@stencil/sass';
 
 setPluginConfigurationDefaults({
@@ -11,11 +11,11 @@ setPluginConfigurationDefaults({
 export const config: Config = {
   namespace: 'front-lib',
   plugins: [
-     sass(),
+    sass(),
     tailwind(),
     tailwindHMR(),
   ],
-   devServer: {
+  devServer: {
     reloadStrategy: 'pageReload'
   },
   outputTargets: [
