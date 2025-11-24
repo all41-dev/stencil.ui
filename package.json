@@ -56,5 +56,5 @@
     "preversion": "npm run build --prod",
     "postversion": "git push && git push --tags && npm publish"
   },
-  "version": "0.0.0"
+  "version": "0.0.1"
 }
