@@ -4,7 +4,7 @@
   "dependencies": {
     "@stencil/sass": "^3.2.2"
   },
-  "description": "Stencil Component Starter",
+  "description": "Stencil Component UI",
   "devDependencies": {
     "@stencil/core": "^4.27.1",
     "@tailwindcss/postcss": "^4.1.13",
@@ -30,29 +30,31 @@
       "default": "./loader/index.js"
     }
   },
-   "files": [
+  "files": [
     "www/**/*",
     "dist/",
     "loader/"
   ],
-  "homepage": "https://github.com/all41-dev/front.lib.git#readme",
+  "homepage": "https://github.com/all41-dev/stencil.ui.git#readme",
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
-  "name": "@all41-dev/front.lib",
+  "name": "@all41-dev/stencil.ui",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/all41-dev/front.lib.git"
+    "url": "https://github.com/all41-dev/stencil.ui.git"
   },
   "scripts": {
     "build": "stencil build",
     "generate": "stencil generate",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll"
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "preversion": "npm run build --prod",
+    "postversion": "git push && git push --tags && npm publish"
   },
   "unpkg": "dist/front-lib/front-lib.esm.js",
   "version": "2.0.0-alpha.2"
