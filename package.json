@@ -19,9 +19,9 @@
   "exports": {
     ".": {
       "types": "./dist/types/components.d.ts",
-      "import": "./dist/front-lib/front-lib.esm.js",
-      "require": "./dist/front-lib/front-lib.cjs.js",
-      "default": "./dist/front-lib/front-lib.esm.js"
+      "import": "./dist/stencil.ui/index.esm.js",
+      "require": "./dist/stencil.ui/index.cjs.js",
+      "default": "./dist/stencil.ui/index.esm.js"
     },
     "./loader": {
       "types": "./loader/index.d.ts",
@@ -56,6 +56,5 @@
     "preversion": "npm run build --prod",
     "postversion": "git push && git push --tags && npm publish"
   },
-  "unpkg": "dist/front-lib/front-lib.esm.js",
   "version": "0.0.0"
 }

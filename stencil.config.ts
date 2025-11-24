@@ -9,7 +9,7 @@ setPluginConfigurationDefaults({
 
 
 export const config: Config = {
-  namespace: 'front-lib',
+  namespace: 'stencil-ui',
   plugins: [
     sass(),
     tailwind(),
