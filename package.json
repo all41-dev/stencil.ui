@@ -57,5 +57,5 @@
     "postversion": "git push && git push --tags && npm publish"
   },
   "unpkg": "dist/front-lib/front-lib.esm.js",
-  "version": "2.0.0-alpha.2"
+  "version": "0.0.0"
 }
